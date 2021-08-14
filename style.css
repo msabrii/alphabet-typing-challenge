@@ -76,3 +76,28 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(69, 123, 157);
   outline: 0;
 }
+
+@media screen and (max-width:700px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 0.8rem;
+    }
+
+    h3 {
+        font-size: 0.6rem;
+    }
+
+    input {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    p {
+        font-size: 0.5rem;
+        padding: 0.6rem;
+    }
+
+}
