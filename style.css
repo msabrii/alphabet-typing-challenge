@@ -4,8 +4,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
-  width: 95vw;
+  min-height: 98vh;
+  min-width: 95vw;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -14,10 +14,10 @@ body {
 }
 
 h1,
-h2, h3 {
+h2,
+h3 {
   color: #f1faee;
   font-family: Poppins;
-  
 }
 
 h1 {
@@ -28,26 +28,55 @@ h1 {
   margin-bottom: 0.4rem;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-weight: 300;
   margin-top: 0.4rem;
-  animation-delay: 0.5s;    
+  animation-delay: 0.5s;
 }
 
 h3 {
-    visibility: transparent;
-    color: rgba(241, 250, 238, 0.4);
-
+  visibility: transparent;
+  color: rgba(241, 250, 238, 0.4);
 }
 
-p {
+p, button {
   color: #f1faee;
   text-align: center;
   font-family: Poppins;
   text-transform: uppercase;
-  border-radius: 1.5rem;
-  padding: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.85rem;
   background-color: #457b9d;
+  outline: 0;
+  border: 0;
+  transition: 0.2s ease-in-out;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
+  min-width: 200px;
+}
+
+#timer span {
+    text-transform: lowercase;
+}
+
+#reset {
+  background: rgb(29, 53, 87);
+  background: linear-gradient(45deg, #1d3557, #457b9d);
+  letter-spacing: 0.2rem;
+  border-radius: 1.5rem;
+  min-width: 200px;
+}
+
+#reset:hover {
+  background: #457b9d;
+  color: #f1faee;
+}
+
+#reset:active {
+  background: rgb(29, 53, 87);
+  color: #f1faee;
+  transform: scale(1.1);
 }
 
 #timer {
@@ -77,27 +106,34 @@ input:focus {
   outline: 0;
 }
 
-@media screen and (max-width:700px) {
-    h1 {
-        font-size: 1.2rem;
-    }
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 1.3rem;
+  }
 
-    h2 {
-        font-size: 0.8rem;
-    }
+  h2 {
+    font-size: 1rem;
+  }
 
-    h3 {
-        font-size: 0.6rem;
-    }
+  h3 {
+    font-size: 0.8rem;
+  }
 
-    input {
-        font-size: 0.9rem;
-        padding: 0.5rem;
-    }
+  input {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 
-    p {
-        font-size: 0.5rem;
-        padding: 0.6rem;
-    }
+  p {
+    font-size: 0.7rem;
+    padding: 0.7rem;
+    min-width: 180px;
+  }
+
+  #reset {
+      min-width: 150px;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+  }
 
 }

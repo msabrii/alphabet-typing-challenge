@@ -1,12 +1,22 @@
 let finalString = "abcdefghijklmnopqrstuvwxyz";
 let finish = false;
 let start = false;
+let reset = false;
+
 let howToText = document.getElementById("howToText");
+let timer = document.getElementById("timer");
+let resetBtn = document.getElementById("reset");
 
 function main() {
+  if (reset) {
+    resetValues();
+  }
+
   let userString = document.getElementById("userString");
   let userValue = userString.value.toLowerCase();
   let len = userValue.length;
+
+  console.log("main", finish, userString.value, userValue, start, len);
 
   if (!finish) {
     console.log(start);
@@ -27,22 +37,46 @@ function main() {
 
     if (finalString == userValue) {
       finish = true;
+      userString.style.boxShadow = "#4bb543 0px 0 0 3px";
     }
   }
 }
 
 function startTimer() {
-  let timer = document.getElementById("timer");
   timer.hidden = false;
+  resetBtn.hidden = false;
   var now = new Date().getTime();
-  console.log(timer);
+
   let x = setInterval(() => {
     let newTime = new Date().getTime();
     let elapsedTime = (newTime - now) / 1000;
     timer.innerText = elapsedTime;
     if (finish) {
       clearInterval(x);
-      timer.innerText = "You finished in " + elapsedTime + "s";
+      timer.innerHTML = "You finished in " + elapsedTime + "<span>s</span>";
+    }
+    if (reset) {
+      clearInterval(x);
+      resetValues();
     }
   }, 90);
+}
+
+function resetGame() {
+  reset = true;
+  console.log("reset");
+
+  if (finish) {
+    finish = false;
+    main();
+  }
+}
+
+function resetValues() {
+  console.log("reset values");
+  timer.innerText = "Game Reset";
+  let userString = document.getElementById("userString");
+  userString.value = "";
+  reset = false;
+  start = false;
 }
